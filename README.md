@@ -1,3 +1,8 @@
+```
+╔═╗┌─┐┌┬┐┬─┐┌─┐┬  ┌─┐─┐ ┬┬ ┬
+╠═╣└─┐ │ ├┬┘│ ││  ├─┤┌┴┬┘└┬┘
+╩ ╩└─┘ ┴ ┴└─└─┘┴─┘┴ ┴┴ └─ ┴
+```
 # Astrolaxy
 A Go library for astronomy, physics and mathematics
 
