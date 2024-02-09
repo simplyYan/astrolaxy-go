@@ -19,6 +19,6 @@ go get -u github.com/simplyYan/astrolaxy-go
 ## Docs
 The library is very simple to use and you can access the documentation via pkg.dev:
 ```bash
-
+https://pkg.go.dev/github.com/simplyYan/astrolaxy-go
 ```
 
