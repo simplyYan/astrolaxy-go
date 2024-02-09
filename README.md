@@ -11,7 +11,7 @@ A Go library for astronomy, physics and mathematics
 
 - Efficient and precise: All formulas are original and tested, they are perfect;
 
-- More than 50 formulas: It's a big toolbox! It has everything you need;
+- More than 90 formulas: It's a big toolbox! It has everything you need;
 
 - Open-source: Anyone can use and modify astrolaxy, it's open-source;
 
@@ -28,7 +28,7 @@ https://pkg.go.dev/github.com/simplyYan/astrolaxy-go
 ```
 
 ## Formulas available
-Astrolaxy offers more than 50 shapes and is constantly being updated to add more formulas. All formulas are original and tested. See the available formulas:
+Astrolaxy offers more than 90 formulas and is constantly being updated to add more formulas. All formulas are original and tested. See the available formulas:
 - Absolute Magnitude;
 - Age Of Universe;
 - Ampere Law;
