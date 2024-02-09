@@ -6,7 +6,7 @@ import (
 )
 
 //Use the _help function to get an explanation of all formulas. It explains the basics of how to use them and what they are for.
-func _help() {
+func Help_() {
 	fmt.Println(`
 	Drake equation:
          N = R* × fp × ne × fl × fi × fc × L
