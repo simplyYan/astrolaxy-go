@@ -1,5 +1,5 @@
 # Astrolaxy
-a Go library for astronomy, physics and mathematics
+A Go library for astronomy, physics and mathematics
 
 ## Key features
 - Lightweight, fast and simple: astrolaxy is extremely fast and lightweight, and was built only with built-in libraries. The Go language is much faster than Python, and just as easy, and using astrolaxy, calculations in physics, astronomy, mathematics, and science in general are perfect;
