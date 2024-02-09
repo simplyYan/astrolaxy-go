@@ -5,397 +5,7 @@ import (
 	"math"
 )
 
-func DrakeEquation(N, fp, ne, fl, fi, fc, L float64) float64 {
-	return N * fp * ne * fl * fi * fc * L
-}
-
-func KeplersThirdLaw(a, T float64) float64 {
-	const G = 6.67430e-11
-	return math.Pow((math.Pow(a, 3)/(4*math.Pow(math.Pi, 2))), 1/3) * math.Sqrt((4*math.Pow(math.Pi, 2))/(G*T*T))
-}
-
-func UniversalGravitationForce(m1, m2, r float64) float64 {
-	const G = 6.67430e-11
-	return (G * m1 * m2) / (r * r)
-}
-
-func EscapeVelocity(m, r float64) float64 {
-	const G = 6.67430e-11
-	return math.Sqrt((2 * G * m) / r)
-}
-
-func WienDisplacementLaw(T float64) float64 {
-	const b = 2.8977729e-3
-	return b / T
-}
-
-func StefanBoltzmannLaw(T float64) float64 {
-	const sigma = 5.670374419e-8
-	return sigma * math.Pow(T, 4)
-}
-
-func SchwarzschildRadius(m float64) float64 {
-	const G = 6.67430e-11
-	const c = 299792458
-	return (2 * G * m) / (c * c)
-}
-
-func HubbleLaw(v, d float64) float64 {
-	const H0 = 70
-	return v / d
-}
-
-func RocheLimit(density1, density2, radius1, radius2 float64) float64 {
-	return 2.44 * (radius1 + radius2) * math.Pow(density1/density2, 1/3)
-}
-
-func FriedmannEquation(H, rho, k float64) float64 {
-	const G = 6.67430e-11
-	return math.Pow(H, 2) - (8*math.Pi*G*rho)/3 + k
-}
-
-func ConservationOfAngularMomentum(m, r, v float64) float64 {
-	return m * r * v
-}
-
-func NewtonsSecondLaw(F, m float64) float64 {
-	return F / m
-}
-
-func PolytropicEquationOfState(P, K, rho, n float64) float64 {
-	return P - K*math.Pow(rho, n)
-}
-
-func TitiusBodeLaw(n float64) float64 {
-	if n == 0 {
-		return 0
-	}
-	return 0.4 + (0.3 * n)
-}
-
-func ChandrasekharEquation(m float64) float64 {
-	const k = 1.8751
-	const mp = 1.6726219e-27
-	const h = 6.62607015e-34
-	const c = 299792458
-	const G = 6.67430e-11
-
-	return math.Sqrt((math.Pow(k, 3) * math.Pow(mp, 5)) / (math.Pow(h, 3) * math.Pow(c, 3) * G * m))
-}
-
-func ParallaxFormula(d, θ float64) float64 {
-	return d / math.Tan(θ)
-}
-
-func SpecialRelativityEquation(E, m, c float64) float64 {
-	return E / (m * c * c)
-}
-
-func InverseSquareLaw(P, d float64) float64 {
-	return P / (4 * math.Pi * math.Pow(d, 2))
-}
-
-func RadioactiveHalfLife(N0, lambda, t float64) float64 {
-	return N0 * math.Exp(-lambda*t)
-}
-
-func LuminousFlux(L, d float64) float64 {
-	return L / (4 * math.Pi * math.Pow(d, 2))
-}
-
-func ConservationOfEnergy(K, U float64) float64 {
-	return K + U
-}
-
-func cosmologicalRedshift(lambda_obs, lambda_em float64) float64 {
-	return (lambda_obs - lambda_em) / lambda_em
-}
-
-func AbsoluteMagnitude(m, d float64) float64 {
-	return m - 5*(math.Log10(d)-1)
-}
-
-const solarConstant = 1361
-
-func CriticalDensity(H float64) float64 {
-	const G = 6.67430e-11
-	return 3 * math.Pow(H, 2) / (8 * math.Pi * G)
-}
-
-func AgeOfUniverse(H0 float64) float64 {
-	return 1 / H0
-}
-
-func MaxwellBoltzmannEquilibrium(m, v, T float64) float64 {
-	const k = 1.380649e-23
-	return math.Pow(m/(2*math.Pi*k*T), 3/2) * 4 * math.Pi * math.Pow(v, 2) * math.Exp(-m*v*v/(2*k*T))
-}
-
-func OrbitalEccentricity(a, b float64) float64 {
-	return math.Sqrt(1 - math.Pow(b, 2)/math.Pow(a, 2))
-}
-
-func TullyFisherRelation(v, a, b float64) float64 {
-	return math.Log10(v) - a*math.Log10(b)
-}
-
-func RadiationPressure(I, c float64) float64 {
-	return I / c
-}
-
-func ConservationOfLinearMomentum(m1, v1, m2, v2 float64) float64 {
-	return m1*v1 + m2*v2
-}
-
-func FluxDensity(F, A float64) float64 {
-	return F / A
-}
-
-func OrbitalVelocity(G, M, r float64) float64 {
-	return math.Sqrt((G * M) / r)
-}
-
-func StellarBurstSizeRatio(L1, L2 float64) float64 {
-	return math.Sqrt(L1 / L2)
-}
-
-func RadialVelocity(c, deltaLambda, lambda float64) float64 {
-	return c * (deltaLambda / lambda)
-}
-
-func BlueShift(deltaLambda, lambda float64) float64 {
-	return deltaLambda / lambda
-}
-
-func LuminosityMassRelation(M float64) float64 {
-	return math.Pow(M, 3.5)
-}
-
-func PeriodLuminosityRelation(P float64) float64 {
-	return math.Pow(P, 3.5)
-}
-
-func ApparentMagnitude(F float64) float64 {
-	return -2.5 * math.Log10(F)
-}
-
-func WhiteDwarfRadius(hbar, me, G, rho float64) float64 {
-	return math.Pow((hbar*hbar/(2*math.Pi*me*me))*(3/(8*math.Pi*G*rho)), 1/3)
-}
-
-func OrbitalPeriod(a, G, M1, M2 float64) float64 {
-	return 2 * math.Pi * math.Sqrt(math.Pow(a, 3)/(G*(M1+M2)))
-}
-
-func ComovingCosmologicalDistance(c, a, dt float64) float64 {
-	return c * integral(1/a, dt)
-}
-
-func DarkEnergyDensity(Lambda, c, G float64) float64 {
-	return (Lambda * c * c) / (8 * math.Pi * G)
-}
-
-func StarAge(tau, Mi, Mf float64) float64 {
-	return (1 / tau) * math.Log(Mi/Mf)
-}
-
-func TidalRatio(M1, M2, R, r float64) float64 {
-	return (M1 / M2) * math.Pow(R/r, 3)
-}
-
-func EddingtonLuminosity(G, M, mp, sigma_T, c float64) float64 {
-	return (4 * math.Pi * G * M * mp) / (sigma_T * c)
-}
-
-func StefanBoltzmannEffectiveTemperature(L, R float64) float64 {
-	const sigma = 5.670374419e-8
-	return math.Pow((L / (4 * math.Pi * sigma * math.Pow(R, 2))), 1/4)
-}
-
-func RayleighJeansDistribution(k, T, lambda float64) float64 {
-	return (8 * math.Pi * k * T) / math.Pow(lambda, 4)
-}
-
-func VirialTheorem(K, U float64) float64 {
-	return 2*K + U
-}
-
-func HabitableZoneRatio(L, Lsun float64) float64 {
-	return math.Sqrt(L / Lsun)
-}
-
-func RocheLimitRatio(m, M, d float64) float64 {
-	return 0.49 * math.Pow(m/(M+m), 1/3) * d
-}
-
-func SolarMass(L, Lsun, R, Rsun float64) float64 {
-	return (L / Lsun) * math.Pow(R/Rsun, 2)
-}
-
-func DistanceModulus(m, M, d float64) float64 {
-	return m - M - 5*math.Log10(d/10)
-}
-
-func ScaleDistance(c, H0 float64) float64 {
-	return c / H0
-}
-
-func DistortionVelocity(H0, d float64) float64 {
-	return H0 * d
-}
-
-func DecayParameter(tau float64) float64 {
-	return math.Log(2) / tau
-}
-
-func EnergyDifference(h, f float64) float64 {
-	return h * f
-}
-
-func BodeTitiusLaw(n float64) float64 {
-	return (n + 4) / 10
-}
-
-func BlackHoleEscapeVelocity(c, G, M, r float64) float64 {
-	return c * math.Sqrt(2*G*M/(r*c*c))
-}
-
-func CosmologicalDecompressionTime(H0 float64) float64 {
-	return 1 / H0
-}
-
-func GravitationalLensing(G, M, c, b float64) float64 {
-	return 4 * G * M / (c * c * b)
-}
-
-func GoldreichJulianRatio(rho, B, e float64) float64 {
-	return rho * B / e
-}
-
-func CriticalDensityUniverse(H0, G float64) float64 {
-	return 3 * math.Pow(H0, 2) / (8 * math.Pi * G)
-}
-
-func SpatialSignature(ds, c float64) float64 {
-	return ds / (c * c)
-}
-
-func TidalForce(d2Phi_dr2, delta_m float64) float64 {
-	return d2Phi_dr2 * delta_m
-}
-
-func SpatialCurvature(g_ad_g_bc, g_ac_g_bd, g_ac_g_bd float64) float64 {
-	return g_ad_g_bc - g_ac_g_bd + g_ac_g_bd
-}
-
-func LuminousEnergyFlux(dE, A, dt float64) float64 {
-	return dE / (A * dt)
-}
-
-func ParticleLifetime(h, Gamma float64) float64 {
-	return h / Gamma
-}
-
-func ProbabilityDensityFunction(psi float64) float64 {
-	return math.Pow(math.Abs(psi), 2)
-}
-
-func SchwarzschildRadius(G, M, c float64) float64 {
-	return (2 * G * M) / (c * c)
-}
-
-func EventHorizonArea(rs float64) float64 {
-	return 4 * math.Pi * math.Pow(rs, 2)
-}
-
-func HawkingTemperature(G, M, h, c, k float64) float64 {
-	return (h * c * c * c) / (8 * math.Pi * G * M * k)
-}
-
-func StableOrbitalPeriod(G, M, r float64) float64 {
-	return 2 * math.Pi * math.Sqrt(math.Pow(r, 3)/(G*M))
-}
-
-func GravitationalFieldEnergyDensity(G, M, c float64) float64 {
-	return (3 * c * c) / (32 * math.Pi * G * math.Pow(M, 2))
-}
-
-func ExoticMatterEnergyDensity(c, G, g00, g11 float64) float64 {
-	return -(c * c) / (8 * math.Pi * G * (g00 + g11))
-}
-
-func MinkowskiMetric(ds, dt, dx, dy, dz, c float64) float64 {
-	return -c*c*dt*dt + dx*dx + dy*dy + dz*dz
-}
-
-func TimeDilation(dt, v, c float64) float64 {
-	return dt * math.Sqrt(1-(v*v)/(c*c))
-}
-
-func LengthContraction(L, v, c float64) float64 {
-	return L * math.Sqrt(1-(v*v)/(c*c))
-}
-
-func LorentzContraction(L, gamma float64) float64 {
-	return L / gamma
-}
-
-func AmpereMaxwellLaw(B, J, E, mu0, epsilon0, dE_dt float64) float64 {
-	return mu0*J + mu0*epsilon0*dE_dt
-}
-
-func BernoulliEquation(P1, rho, v1, h1, g, P2, v2, h2 float64) float64 {
-	return P1 + (0.5 * rho * v1 * v1) + (rho * g * h1) - P2 - (0.5 * rho * v2 * v2) - (rho * g * h2)
-}
-
-func EnergyMassEquivalence(m, c float64) float64 {
-	return m * c * c
-}
-
-func CoulombLaw(k, q1, q2, r float64) float64 {
-	return k * math.Abs(q1*q2) / (r * r)
-}
-
-func SnellDescartesLaw(n1, theta1, n2 float64) float64 {
-	return (n1 / n2) * math.Sin(theta1)
-}
-
-func KineticGasEquation(n, R, T float64) float64 {
-	return n * R * T
-}
-
-func UncertaintyHeisenberg(h float64) float64 {
-	return h / 2
-}
-
-func PlanckEinsteinEquation(h, f float64) float64 {
-	return h * f
-}
-
-func EinsteinEquation(p, c, m0 float64) float64 {
-	return math.Sqrt(math.Pow((p*c), 2) + math.Pow((m0*math.Pow(c, 2)), 2))
-}
-
-func FaradayLaw(dPhi_dt float64) float64 {
-	return -dPhi_dt
-}
-
-func OhmsLaw(I, R float64) float64 {
-	return I * R
-}
-
-func HookeLaw(k, x float64) float64 {
-	return -k * x
-}
-
-func AmpereLaw(B_integral, μ0, I, ε0, dΦE_dt float64) float64 {
-	return B_integral - μ0*I - μ0*ε0*dΦE_dt
-}
-
-func MaxwellDivergence(E_divergence, p, ε0 float64) float64 {
-	return E_divergence - p/ε0
-}
-
+//Use the _help function to get an explanation of all formulas. It explains the basics of how to use them and what they are for.
 func _help() {
 	fmt.Println(`
 	Drake equation:
@@ -860,4 +470,397 @@ Lorentz Contraction Formula: Lorentz contraction describes the reduction in leng
      Gravitational Contraction Formula: Gravitational contraction is an effect predicted by the theory of general relativity in which space-time is curved in the presence of mass and energy. The Schwarzschild metric is an example of how the presence of mass causes spacetime to warp around a massive body.
 	
 	`)
+
+func DrakeEquation(N, fp, ne, fl, fi, fc, L float64) float64 {
+	return N * fp * ne * fl * fi * fc * L
+}
+
+func KeplersThirdLaw(a, T float64) float64 {
+	const G = 6.67430e-11
+	return math.Pow((math.Pow(a, 3)/(4*math.Pow(math.Pi, 2))), 1/3) * math.Sqrt((4*math.Pow(math.Pi, 2))/(G*T*T))
+}
+
+func UniversalGravitationForce(m1, m2, r float64) float64 {
+	const G = 6.67430e-11
+	return (G * m1 * m2) / (r * r)
+}
+
+func EscapeVelocity(m, r float64) float64 {
+	const G = 6.67430e-11
+	return math.Sqrt((2 * G * m) / r)
+}
+
+func WienDisplacementLaw(T float64) float64 {
+	const b = 2.8977729e-3
+	return b / T
+}
+
+func StefanBoltzmannLaw(T float64) float64 {
+	const sigma = 5.670374419e-8
+	return sigma * math.Pow(T, 4)
+}
+
+func SchwarzschildRadius(m float64) float64 {
+	const G = 6.67430e-11
+	const c = 299792458
+	return (2 * G * m) / (c * c)
+}
+
+func HubbleLaw(v, d float64) float64 {
+	const H0 = 70
+	return v / d
+}
+
+func RocheLimit(density1, density2, radius1, radius2 float64) float64 {
+	return 2.44 * (radius1 + radius2) * math.Pow(density1/density2, 1/3)
+}
+
+func FriedmannEquation(H, rho, k float64) float64 {
+	const G = 6.67430e-11
+	return math.Pow(H, 2) - (8*math.Pi*G*rho)/3 + k
+}
+
+func ConservationOfAngularMomentum(m, r, v float64) float64 {
+	return m * r * v
+}
+
+func NewtonsSecondLaw(F, m float64) float64 {
+	return F / m
+}
+
+func PolytropicEquationOfState(P, K, rho, n float64) float64 {
+	return P - K*math.Pow(rho, n)
+}
+
+func TitiusBodeLaw(n float64) float64 {
+	if n == 0 {
+		return 0
+	}
+	return 0.4 + (0.3 * n)
+}
+
+func ChandrasekharEquation(m float64) float64 {
+	const k = 1.8751
+	const mp = 1.6726219e-27
+	const h = 6.62607015e-34
+	const c = 299792458
+	const G = 6.67430e-11
+
+	return math.Sqrt((math.Pow(k, 3) * math.Pow(mp, 5)) / (math.Pow(h, 3) * math.Pow(c, 3) * G * m))
+}
+
+func ParallaxFormula(d, θ float64) float64 {
+	return d / math.Tan(θ)
+}
+
+func SpecialRelativityEquation(E, m, c float64) float64 {
+	return E / (m * c * c)
+}
+
+func InverseSquareLaw(P, d float64) float64 {
+	return P / (4 * math.Pi * math.Pow(d, 2))
+}
+
+func RadioactiveHalfLife(N0, lambda, t float64) float64 {
+	return N0 * math.Exp(-lambda*t)
+}
+
+func LuminousFlux(L, d float64) float64 {
+	return L / (4 * math.Pi * math.Pow(d, 2))
+}
+
+func ConservationOfEnergy(K, U float64) float64 {
+	return K + U
+}
+
+func cosmologicalRedshift(lambda_obs, lambda_em float64) float64 {
+	return (lambda_obs - lambda_em) / lambda_em
+}
+
+func AbsoluteMagnitude(m, d float64) float64 {
+	return m - 5*(math.Log10(d)-1)
+}
+
+const solarConstant = 1361
+
+func CriticalDensity(H float64) float64 {
+	const G = 6.67430e-11
+	return 3 * math.Pow(H, 2) / (8 * math.Pi * G)
+}
+
+func AgeOfUniverse(H0 float64) float64 {
+	return 1 / H0
+}
+
+func MaxwellBoltzmannEquilibrium(m, v, T float64) float64 {
+	const k = 1.380649e-23
+	return math.Pow(m/(2*math.Pi*k*T), 3/2) * 4 * math.Pi * math.Pow(v, 2) * math.Exp(-m*v*v/(2*k*T))
+}
+
+func OrbitalEccentricity(a, b float64) float64 {
+	return math.Sqrt(1 - math.Pow(b, 2)/math.Pow(a, 2))
+}
+
+func TullyFisherRelation(v, a, b float64) float64 {
+	return math.Log10(v) - a*math.Log10(b)
+}
+
+func RadiationPressure(I, c float64) float64 {
+	return I / c
+}
+
+func ConservationOfLinearMomentum(m1, v1, m2, v2 float64) float64 {
+	return m1*v1 + m2*v2
+}
+
+func FluxDensity(F, A float64) float64 {
+	return F / A
+}
+
+func OrbitalVelocity(G, M, r float64) float64 {
+	return math.Sqrt((G * M) / r)
+}
+
+func StellarBurstSizeRatio(L1, L2 float64) float64 {
+	return math.Sqrt(L1 / L2)
+}
+
+func RadialVelocity(c, deltaLambda, lambda float64) float64 {
+	return c * (deltaLambda / lambda)
+}
+
+func BlueShift(deltaLambda, lambda float64) float64 {
+	return deltaLambda / lambda
+}
+
+func LuminosityMassRelation(M float64) float64 {
+	return math.Pow(M, 3.5)
+}
+
+func PeriodLuminosityRelation(P float64) float64 {
+	return math.Pow(P, 3.5)
+}
+
+func ApparentMagnitude(F float64) float64 {
+	return -2.5 * math.Log10(F)
+}
+
+func WhiteDwarfRadius(hbar, me, G, rho float64) float64 {
+	return math.Pow((hbar*hbar/(2*math.Pi*me*me))*(3/(8*math.Pi*G*rho)), 1/3)
+}
+
+func OrbitalPeriod(a, G, M1, M2 float64) float64 {
+	return 2 * math.Pi * math.Sqrt(math.Pow(a, 3)/(G*(M1+M2)))
+}
+
+func ComovingCosmologicalDistance(c, a, dt float64) float64 {
+	return c * integral(1/a, dt)
+}
+
+func DarkEnergyDensity(Lambda, c, G float64) float64 {
+	return (Lambda * c * c) / (8 * math.Pi * G)
+}
+
+func StarAge(tau, Mi, Mf float64) float64 {
+	return (1 / tau) * math.Log(Mi/Mf)
+}
+
+func TidalRatio(M1, M2, R, r float64) float64 {
+	return (M1 / M2) * math.Pow(R/r, 3)
+}
+
+func EddingtonLuminosity(G, M, mp, sigma_T, c float64) float64 {
+	return (4 * math.Pi * G * M * mp) / (sigma_T * c)
+}
+
+func StefanBoltzmannEffectiveTemperature(L, R float64) float64 {
+	const sigma = 5.670374419e-8
+	return math.Pow((L / (4 * math.Pi * sigma * math.Pow(R, 2))), 1/4)
+}
+
+func RayleighJeansDistribution(k, T, lambda float64) float64 {
+	return (8 * math.Pi * k * T) / math.Pow(lambda, 4)
+}
+
+func VirialTheorem(K, U float64) float64 {
+	return 2*K + U
+}
+
+func HabitableZoneRatio(L, Lsun float64) float64 {
+	return math.Sqrt(L / Lsun)
+}
+
+func RocheLimitRatio(m, M, d float64) float64 {
+	return 0.49 * math.Pow(m/(M+m), 1/3) * d
+}
+
+func SolarMass(L, Lsun, R, Rsun float64) float64 {
+	return (L / Lsun) * math.Pow(R/Rsun, 2)
+}
+
+func DistanceModulus(m, M, d float64) float64 {
+	return m - M - 5*math.Log10(d/10)
+}
+
+func ScaleDistance(c, H0 float64) float64 {
+	return c / H0
+}
+
+func DistortionVelocity(H0, d float64) float64 {
+	return H0 * d
+}
+
+func DecayParameter(tau float64) float64 {
+	return math.Log(2) / tau
+}
+
+func EnergyDifference(h, f float64) float64 {
+	return h * f
+}
+
+func BodeTitiusLaw(n float64) float64 {
+	return (n + 4) / 10
+}
+
+func BlackHoleEscapeVelocity(c, G, M, r float64) float64 {
+	return c * math.Sqrt(2*G*M/(r*c*c))
+}
+
+func CosmologicalDecompressionTime(H0 float64) float64 {
+	return 1 / H0
+}
+
+func GravitationalLensing(G, M, c, b float64) float64 {
+	return 4 * G * M / (c * c * b)
+}
+
+func GoldreichJulianRatio(rho, B, e float64) float64 {
+	return rho * B / e
+}
+
+func CriticalDensityUniverse(H0, G float64) float64 {
+	return 3 * math.Pow(H0, 2) / (8 * math.Pi * G)
+}
+
+func SpatialSignature(ds, c float64) float64 {
+	return ds / (c * c)
+}
+
+func TidalForce(d2Phi_dr2, delta_m float64) float64 {
+	return d2Phi_dr2 * delta_m
+}
+
+func SpatialCurvature(g_ad_g_bc, g_ac_g_bd, g_ac_g_bd float64) float64 {
+	return g_ad_g_bc - g_ac_g_bd + g_ac_g_bd
+}
+
+func LuminousEnergyFlux(dE, A, dt float64) float64 {
+	return dE / (A * dt)
+}
+
+func ParticleLifetime(h, Gamma float64) float64 {
+	return h / Gamma
+}
+
+func ProbabilityDensityFunction(psi float64) float64 {
+	return math.Pow(math.Abs(psi), 2)
+}
+
+func SchwarzschildRadius(G, M, c float64) float64 {
+	return (2 * G * M) / (c * c)
+}
+
+func EventHorizonArea(rs float64) float64 {
+	return 4 * math.Pi * math.Pow(rs, 2)
+}
+
+func HawkingTemperature(G, M, h, c, k float64) float64 {
+	return (h * c * c * c) / (8 * math.Pi * G * M * k)
+}
+
+func StableOrbitalPeriod(G, M, r float64) float64 {
+	return 2 * math.Pi * math.Sqrt(math.Pow(r, 3)/(G*M))
+}
+
+func GravitationalFieldEnergyDensity(G, M, c float64) float64 {
+	return (3 * c * c) / (32 * math.Pi * G * math.Pow(M, 2))
+}
+
+func ExoticMatterEnergyDensity(c, G, g00, g11 float64) float64 {
+	return -(c * c) / (8 * math.Pi * G * (g00 + g11))
+}
+
+func MinkowskiMetric(ds, dt, dx, dy, dz, c float64) float64 {
+	return -c*c*dt*dt + dx*dx + dy*dy + dz*dz
+}
+
+func TimeDilation(dt, v, c float64) float64 {
+	return dt * math.Sqrt(1-(v*v)/(c*c))
+}
+
+func LengthContraction(L, v, c float64) float64 {
+	return L * math.Sqrt(1-(v*v)/(c*c))
+}
+
+func LorentzContraction(L, gamma float64) float64 {
+	return L / gamma
+}
+
+func AmpereMaxwellLaw(B, J, E, mu0, epsilon0, dE_dt float64) float64 {
+	return mu0*J + mu0*epsilon0*dE_dt
+}
+
+func BernoulliEquation(P1, rho, v1, h1, g, P2, v2, h2 float64) float64 {
+	return P1 + (0.5 * rho * v1 * v1) + (rho * g * h1) - P2 - (0.5 * rho * v2 * v2) - (rho * g * h2)
+}
+
+func EnergyMassEquivalence(m, c float64) float64 {
+	return m * c * c
+}
+
+func CoulombLaw(k, q1, q2, r float64) float64 {
+	return k * math.Abs(q1*q2) / (r * r)
+}
+
+func SnellDescartesLaw(n1, theta1, n2 float64) float64 {
+	return (n1 / n2) * math.Sin(theta1)
+}
+
+func KineticGasEquation(n, R, T float64) float64 {
+	return n * R * T
+}
+
+func UncertaintyHeisenberg(h float64) float64 {
+	return h / 2
+}
+
+func PlanckEinsteinEquation(h, f float64) float64 {
+	return h * f
+}
+
+func EinsteinEquation(p, c, m0 float64) float64 {
+	return math.Sqrt(math.Pow((p*c), 2) + math.Pow((m0*math.Pow(c, 2)), 2))
+}
+
+func FaradayLaw(dPhi_dt float64) float64 {
+	return -dPhi_dt
+}
+
+func OhmsLaw(I, R float64) float64 {
+	return I * R
+}
+
+func HookeLaw(k, x float64) float64 {
+	return -k * x
+}
+
+func AmpereLaw(B_integral, μ0, I, ε0, dΦE_dt float64) float64 {
+	return B_integral - μ0*I - μ0*ε0*dΦE_dt
+}
+
+func MaxwellDivergence(E_divergence, p, ε0 float64) float64 {
+	return E_divergence - p/ε0
+}
+
+
 }
